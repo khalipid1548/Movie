@@ -1,0 +1,44 @@
+.rap{
+    li{
+        cursor: pointer;
+    }
+    
+    .left{
+        width: 90px;
+        height: 90px;
+        padding: 20px;
+        border: 1px solid #ebebec;
+    }
+    .icon{
+        width: 50px;
+        height: 50px;
+    }
+    
+    .mid{
+        height: 90px;
+        padding: 10px;
+        border: 1px solid #ebebec;
+        border-right: none;
+    }
+    .dia-chi{
+        font-size: 12px;
+        color: #949494;
+    }
+    .CumRap{
+        list-style-type: none;
+        padding-left: 34px;
+        
+    }
+    .scroll{
+        overflow-y: scroll;
+        height: 540px;
+        border-right: 1px solid #ebebec;
+        &::-webkit-scrollbar{
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: rgba(128, 128, 128, 0.61);
+        }
+    }
+   
+}

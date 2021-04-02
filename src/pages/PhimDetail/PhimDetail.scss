@@ -1,0 +1,116 @@
+.phim{
+    
+    .background-gradient{
+        background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+    }
+    
+    &__mainMaxWidth{
+        display: flex;
+        
+        max-width: 870px;
+        margin: 0 auto;
+        padding: 100px 0;
+    }
+    &__img{
+        width: 220px;
+        height: 320px;
+    }
+    &__caption{
+        margin-top: 70px;
+        font-size: 14px;
+        color: white;
+    }
+    &__point{
+        position: relative;
+        width: 130px;
+        height: 130px;
+        background-color: rgba(0,0,0,.4);
+        border-radius: 50%;
+    }
+    &__circleBorder{
+        
+    }
+    &__percent{
+        position: absolute;
+        margin: 0;
+        left: 0px;
+        top: 20%;
+        font-size: 50px;
+        width: 130px;
+        text-align: center;
+    }
+    .left{
+        display: flex;
+        width: 240px;
+        height: 90px;
+        padding: 20px;
+        border: 1px solid #ebebec;
+    }
+    .icon{
+        width: 50px;
+        height: 50px;
+    }
+    .mid{
+        height: 90px;
+        padding: 10px;
+        border: 1px solid #ebebec;
+        border-right: none;
+        
+    }
+    
+    .CumRap{
+        list-style-type: none;
+        padding-left: 54px;
+        max-height: 540px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar{
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: rgba(128, 128, 128, 0.61);
+        }
+    }
+
+    .lichchieu{
+        list-style-type: none;
+        padding: 0;
+        overflow-y: scroll;
+        max-height: 360px;
+        &::-webkit-scrollbar{
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: rgba(128, 128, 128, 0.61);
+        }
+    }
+    
+    .right{
+        height: 50px;
+        padding: 10px;
+        border: 1px solid #ebebec;
+        // border-left: none;
+        max-height: 200px;
+      
+        
+    }
+    .scroll{
+        overflow-y: scroll;
+        height: 540px;
+        // border-right: 1px solid #ebebec;
+        &::-webkit-scrollbar{
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: rgba(128, 128, 128, 0.61);
+        }
+    }
+    .tenrap{
+        line-height: 50px;
+        margin-left: 10px;
+    }
+    .lichChieu{
+        color: green;
+        text-decoration: none;
+        padding: 0 10px;
+    }
+}

@@ -1,18 +1,11 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import movieApi from "API/movieAPI";
-// import axios from "axios";
 
 export const getMovieList = createAsyncThunk("movie/getMovieList", async () => {
   // call Api
   const data = await movieApi.get();
   return data;
 });
-
-// export const getMovieDetail = createAsyncThunk("movie/getMovieDetail", async (payload) => {
-//   // call Api
-//   const data = await movieApi.getDetail(payload);
-//   return data;
-// });
 
 const movieSlice = createSlice({
   name: "movie",
@@ -45,9 +38,6 @@ const movieSlice = createSlice({
     [getMovieList.fulfilled]: (state, action) => {
       state.movieList = action.payload.items;
     },
-    // [getMovieDetail.fulfilled]: (state, action) => {
-    //   state.phimDetail = action.payload;
-    // },
   },
 });
 

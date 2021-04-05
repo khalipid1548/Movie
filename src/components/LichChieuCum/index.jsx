@@ -15,7 +15,7 @@ export default function LichChieuCum() {
   const [filters, setFilters] = useState("CGV");
 
   const handleClick = (maRap) => {
-    console.log(maRap);
+    // console.log(maRap);
     setFilters(maRap);
   };
 
@@ -24,7 +24,7 @@ export default function LichChieuCum() {
       try {
         const data = await movieApi.getCumRapTheoHeThong(filters);
         setHeThongRap(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.log("Failed to fetch product list: ", error);
       }

@@ -4,8 +4,27 @@ import {Container, Row, Col} from "reactstrap";
 import logo from "assets/img/logo.png";
 import ava from "assets/img/avatar.png";
 import "./header.scss";
+import {useHistory} from "react-router";
+import {useDispatch, useSelector} from "react-redux";
+import {logout} from "reducers/userSlice";
 
 export default function Header() {
+  const history = useHistory();
+  const {currentUser} = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    history.push("/login");
+  };
+
+  const handleRegister = () => {
+    history.push("/register");
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <div>
       <Container className="themed-container" fluid={true}>
@@ -31,13 +50,26 @@ export default function Header() {
           </Col>
           <Col xs="auto">
             <div className="d-flex">
-              <a style={{textDecoration: "none"}} href="#" className="d-flex position-relative">
-                <img src={ava} alt="logo" className="logo" />
-                <p className="t__r">Đăng Nhập</p>
-              </a>
-              <a style={{textDecoration: "none"}} href="#">
-                <p className="t__r">Hồ Chí Minh</p>
-              </a>
+              {currentUser.taiKhoan ? (
+                <>
+                  <div style={{cursor: "pointer"}}>
+                    <p className="t__r">{currentUser.taiKhoan}</p>
+                  </div>
+                  <div style={{cursor: "pointer"}} onClick={handleLogout}>
+                    <p className="t__r">Đăng Xuất</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div style={{cursor: "pointer"}} className="d-flex position-relative" onClick={handleLogin}>
+                    <img src={ava} alt="logo" className="logo" />
+                    <p className="t__r">Đăng Nhập</p>
+                  </div>
+                  <div style={{cursor: "pointer"}} onClick={handleRegister}>
+                    <p className="t__r">Đăng Ký</p>
+                  </div>
+                </>
+              )}
             </div>
           </Col>
         </Row>

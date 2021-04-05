@@ -1,8 +1,8 @@
 import BookVe from "components/BookVe";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 // import AdminRoute from "./guards/AdminRoute";
 // import AdminLayout from "./layouts/AdminLayout";
-import AuthLayout from "./layouts/AuthLayout";
+
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage/index.jsx";
 import Login from "./pages/Login";
@@ -24,28 +24,15 @@ function App() {
         </Route>
 
         <Route exact path={["/login", "/register"]}>
-          <AuthLayout>
-            <Switch>
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/register" component={Register} />
-            </Switch>
-          </AuthLayout>
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+          </Switch>
         </Route>
 
         <Route exact path="/chonghe" component={BookVe} />
 
-        {/* <Route exact path="/" component={LichChieuCum} /> */}
-        {/* <Route exact path={["/admin/users"]}>
-          <AdminLayout>
-            <Switch>
-              <AdminRoute path="/admin/users" component={UsersManagement} />
-            </Switch>
-          </AdminLayout>
-        </Route> */}
-
-        {/* 2 cách sử lý khi url không hợp lệ */}
-        {/* <Redirect to="/" /> */}
-        {/* <Route component={PageNotFound} /> */}
+        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   );

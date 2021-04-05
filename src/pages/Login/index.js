@@ -1,88 +1,41 @@
-import React, {Component} from "react";
-import {Redirect} from "react-router-dom";
-import {connect} from "react-redux";
-import {login} from "../../actions/Auth";
+import React from "react";
+import {Formik, Form, Field} from "formik";
+import {useDispatch, useSelector} from "react-redux";
+import {login} from "reducers/userSlice";
+import {Redirect} from "react-router";
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
+export default function Login() {
+  const dispatch = useDispatch();
+  const {currentUser} = useSelector((state) => state.userReducer);
 
-    this.state = {
-      taiKhoan: "",
-      matKhau: "",
-    };
-  }
-
-  handleChange = (evt) => {
-    const {name, value} = evt.target;
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  render() {
-    // Kiểm tra nếu currentUser có data => đã đăng nhập => redirect qua trang home
-    // if (this.props.currentUser) {
-    //   return <Redirect to="/" />;
-    // }
-
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-6 mx-auto">
+  return (
+    <>
+      <Formik
+        initialValues={{
+          taiKhoan: "",
+          matKhau: "",
+        }}
+        className="w-50 mx-auto"
+        onSubmit={(value) => {
+          dispatch(login(value));
+        }}
+      >
+        {(formikProps) => (
+          <Form className="container">
+            <h1>Đăng nhập</h1>
             <div className="form-group">
-              <label htmlFor="taiKhoan">Tài Khoản</label>
-              <input
-                type="text"
-                className="form-control"
-                id="taiKhoan"
-                name="taiKhoan"
-                value={this.state.taiKhoan}
-                onChange={this.handleChange}
-              />
+              <label htmlFor="">Tài khoản</label>
+              <Field name="taiKhoan" onChange={formikProps.handleChange} type="text" className="form-control" />
             </div>
             <div className="form-group">
-              <label htmlFor="matKhau">Mật Khẩu</label>
-              <input
-                type="password"
-                className="form-control"
-                id="matKhau"
-                name="matKhau"
-                value={this.state.matKhau}
-                onChange={this.handleChange}
-              />
+              <label htmlFor="">mật khẩu</label>
+              <Field name="matKhau" onChange={formikProps.handleChange} type="password" className="form-control" />
             </div>
-            <button
-              className="btn btn-success"
-              onClick={() => this.props.login(this.state)}
-              disabled={this.props.loading}
-            >
-              Đăng Nhập
-            </button>
-            {this.props.error ? (
-              <div className="alert alert-danger">
-                <span>{this.props.error}</span>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    );
-  }
+            <button className="btn btn-success">Đăng nhập</button>
+          </Form>
+        )}
+      </Formik>
+      {currentUser.hoTen ? <Redirect to="/" /> : null}
+    </>
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.authReducer.currentUser,
-    loading: state.authReducer.loading,
-    error: state.authReducer.error,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    login: (values) => dispatch(login(values)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);

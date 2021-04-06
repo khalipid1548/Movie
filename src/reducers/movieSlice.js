@@ -13,11 +13,16 @@ const movieSlice = createSlice({
     movieList: [],
     danhSachGheDangDat: [],
     lichChon: [],
+    phimChon: [],
   },
   reducers: {
     PICK_LICH(state, action) {
       state.lichChon.push(action.payload);
-      console.log(action.payload);
+      // console.log(action.payload);
+    },
+    PICK_PHIM(state, action) {
+      state.phimChon.push(action.payload);
+      // console.log(action.payload);
     },
     DAT_GHE(state, action) {
       let index = state.danhSachGheDangDat.findIndex((gheDangDat) => gheDangDat.soGhe === action.payload.soGhe);
@@ -42,5 +47,5 @@ const movieSlice = createSlice({
 });
 
 const {reducer, actions} = movieSlice;
-export const {DAT_GHE, HUY_GHE, PICK_LICH} = actions;
+export const {DAT_GHE, HUY_GHE, PICK_LICH, PICK_PHIM} = actions;
 export default reducer;

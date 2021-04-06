@@ -92,12 +92,22 @@ export default function LichChieuCum() {
           <Col sm="4 p-0">
             <div className="scroll">
               <ul className="CumRap">
-                {heThongRap?.map((rap) => (
-                  <li className="mid" key={rap.maCumRap}>
-                    <span>{rap.tenCumRap}</span> <br />
-                    <span className="dia-chi">{rap.diaChi}</span>
-                  </li>
-                ))}
+                {heThongRap?.map((rap) => {
+                  let cssrapdangchon = "";
+                  let index = heThongRap.findIndex((cumrap) => cumrap.maCumRap === rap.maCumRap);
+                  const abc = (rap) => {
+                    console.log(index);
+                    if (index !== -1) {
+                      cssrapdangchon = "active";
+                    }
+                  };
+                  return (
+                    <li className={`mid ${cssrapdangchon}`} key={rap.maCumRap} onClick={() => abc(rap.maCumRap)}>
+                      <span>{rap.tenCumRap}</span> <br />
+                      <span className="dia-chi">{rap.diaChi}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </Col>

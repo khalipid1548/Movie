@@ -8,7 +8,13 @@
         height: 90px;
         padding: 20px;
         border: 1px solid #ebebec;
+        opacity: .5;
+        &:hover{
+            opacity: 1;
+        }
+        
     }
+    
     .icon{
         width: 50px;
         height: 50px;
@@ -19,6 +25,17 @@
         padding: 10px;
         border: 1px solid #ebebec;
         border-right: none;
+        opacity: .5;
+        &:hover{
+            opacity: 1;
+        }
+        
+    }
+    .active{
+        opacity: 1!important;
+    }
+    .mid:first-child{
+        opacity: 1;
     }
     .dia-chi{
         font-size: 12px;

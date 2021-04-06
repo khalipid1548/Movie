@@ -23,7 +23,7 @@ export default function PhimDetail(props) {
         setPhim(data);
         setCumRap(data.heThongRapChieu[0].cumRapChieu);
         setLichChieu(data.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim);
-        console.log(data.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim);
+        // console.log(data.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim);
       } catch (error) {
         console.log("Failed to fetch phim : ", error);
       }

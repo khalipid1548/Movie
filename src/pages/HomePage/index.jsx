@@ -1,7 +1,7 @@
 import {getMovieList} from "reducers/movieSlice";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import Slider from "react-slick";
 import {Container} from "reactstrap";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +10,7 @@ import CarouselMovie from "components/Carousel";
 import News from "components/News";
 import LichChieuCum from "components/LichChieuCum";
 import "./index.scss";
+import {PICK_PHIM} from "../../reducers/movieSlice";
 
 export default function HomePage() {
   const {movieList} = useSelector((state) => state.movieReducer);
@@ -29,9 +30,10 @@ export default function HomePage() {
     dispatch(getMovieList());
   }, []);
 
-  const handleMovieClick = (maPhim) => {
-    console.log(maPhim);
+  const handleMovieClick = (maPhim, tenPhim) => {
+    console.log(tenPhim);
     history.push(`/phim/${maPhim}`);
+    dispatch(PICK_PHIM(tenPhim));
   };
 
   return (
@@ -44,7 +46,7 @@ export default function HomePage() {
         </div>
         <Slider {...settings}>
           {movieList.map((item) => (
-            <div key={item.maPhim} onClick={() => handleMovieClick(item.maPhim)}>
+            <div key={item.maPhim} onClick={() => handleMovieClick(item.maPhim, item.tenPhim)}>
               <div className="phimm">
                 <img src={item.hinhAnh} alt={item.tenPhim} />
                 <p>{item.tenPhim}</p>

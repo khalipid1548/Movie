@@ -6,7 +6,7 @@ import HangGhe from "./HangGhe.jsx";
 import {useSelector} from "react-redux";
 
 export default function BookVe() {
-  const {lichChon} = useSelector((state) => state.movieReducer);
+  const {lichChon, phimChon} = useSelector((state) => state.movieReducer);
   return (
     <div
       className="bookingMovie"
@@ -36,12 +36,13 @@ export default function BookVe() {
             </div>
             <div className="col-4 ">
               <div style={{marginTop: 60}}>
-                <div style={{fontSize: "20px"}} className="text-light">
+                <div style={{fontSize: "35px"}} className="text-light">
+                  {phimChon}
+                </div>
+                <div style={{fontSize: "35px"}} className="text-light">
                   {lichChon}
                 </div>
-                <div style={{fontSize: "35px"}} className="text-primary mt-2">
-                  Ghế bạn chọn
-                </div>
+
                 <ThongTinBookVe />
               </div>
             </div>

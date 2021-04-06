@@ -10,7 +10,7 @@ import {PICK_LICH} from "reducers/movieSlice";
 import {Link} from "react-router-dom";
 
 export default function PhimDetail(props) {
-  const param = useParams();
+  const {phimId} = useParams();
   const [phim, setPhim] = useState([]);
   const [cumRap, setCumRap] = useState([]);
   const [lichChieu, setLichChieu] = useState([]);
@@ -19,7 +19,7 @@ export default function PhimDetail(props) {
   useEffect(() => {
     (async () => {
       try {
-        const data = await movieApi.getDetail(param.phimId);
+        const data = await movieApi.getDetail(phimId);
         setPhim(data);
         setCumRap(data.heThongRapChieu[0].cumRapChieu);
         setLichChieu(data.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim);
@@ -28,7 +28,7 @@ export default function PhimDetail(props) {
         console.log("Failed to fetch phim : ", error);
       }
     })();
-  }, []);
+  }, [phim]);
 
   const handleCumRap = (rap) => {
     console.log(rap);

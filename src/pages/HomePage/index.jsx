@@ -28,7 +28,7 @@ export default function HomePage() {
 
   useEffect(() => {
     dispatch(getMovieList());
-  }, []);
+  }, [movieList]);
 
   const handleMovieClick = (maPhim, tenPhim) => {
     console.log(tenPhim);

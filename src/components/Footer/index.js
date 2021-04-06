@@ -22,79 +22,56 @@ export default function index() {
             <p style={{color: "#fff"}}>TIX</p>
             <div className="d-flex">
               <Col xs="6">
-                <a href="#" className="styleA">
-                  FAQ
-                </a>
-                <a href="#" className="styleA">
+                <p className="styleA">FAQ</p>
+                <p h className="styleA">
                   Brand Guidelines
-                </a>
+                </p>
               </Col>
               <Col xs="6">
-                <a href="#" className="styleA">
-                  Thỏa thuận sử dụng
-                </a>
-                <a href="#" className="styleA">
-                  Chính sách bảo mật
-                </a>
+                <p className="styleA">Thỏa thuận sử dụng</p>
+                <p className="styleA">Chính sách bảo mật</p>
               </Col>
             </div>
           </Col>
           <Col sm="4" xs="12">
             <p style={{color: "#fff"}}>Đối Tác</p>
             <div className="d-flex" style={{marginBottom: 15}}>
-              <a href="" style={{marginRight: 15}}>
+              <p style={{marginRight: 15}}>
                 <img src={cgv} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
+              </p>
+              <p style={{marginRight: 15}}>
                 <img src={bhd} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
+              </p>
+              <p style={{marginRight: 15}}>
                 <img src={galaxy} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
+              </p>
+              <p style={{marginRight: 15}}>
                 <img src={cinestar} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
+              </p>
+              <p style={{marginRight: 15}}>
                 <img src={lotte} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-            </div>
-            <div className="d-flex" style={{marginBottom: 15}}>
-              <a href="" style={{marginRight: 15}}>
-                <img src={cgv} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
-                <img src={bhd} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
-                <img src={galaxy} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
-                <img src={cinestar} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
-              <a href="" style={{marginRight: 15}}>
-                <img src={lotte} alt="" style={{width: "30px", height: "30px"}} />
-              </a>
+              </p>
             </div>
           </Col>
           <Col sm="4" xs="12">
             <div className="d-flex">
               <Col xs="6">
                 <p>MOBILE APP</p>
-                <a href="" style={{marginRight: 10}}>
+                <p style={{marginRight: 10}}>
                   <img src={apple} alt="" style={{width: "25px", height: "30px"}} />
-                </a>
-                <a href="" style={{marginRight: 10}}>
+                </p>
+                <p style={{marginRight: 10}}>
                   <img src={android} alt="" style={{width: "30px", height: "30px"}} />
-                </a>
+                </p>
               </Col>
               <Col xs="6">
                 <p>SOCIAL</p>
-                <a href="" style={{marginRight: 10}}>
+                <p style={{marginRight: 10}}>
                   <img src={face} alt="" style={{width: "30px", height: "30px"}} />
-                </a>
-                <a href="" style={{marginRight: 10}}>
+                </p>
+                <p style={{marginRight: 10}}>
                   <img src={zalo} alt="" style={{width: "30px", height: "30px"}} />
-                </a>
+                </p>
               </Col>
             </div>
           </Col>
@@ -117,16 +94,13 @@ export default function index() {
             <span>
               Số Điện Thoại (Hotline): 1900 545 436
               <br />
-              Email:{" "}
-              <a href="#" style={{color: "#FB4226"}}>
-                support@tix.vn
-              </a>
+              Email: <p style={{color: "#FB4226"}}>support@tix.vn</p>
             </span>
           </Col>
           <Col sm="2">
-            <a href="#">
+            <p>
               <img className="bo" src={cong} alt="congthuong" />
-            </a>
+            </p>
           </Col>
         </Row>
       </div>

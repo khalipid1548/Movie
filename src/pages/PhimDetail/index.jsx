@@ -28,7 +28,7 @@ export default function PhimDetail(props) {
         console.log("Failed to fetch phim : ", error);
       }
     })();
-  }, [phim]);
+  }, [phim, cumRap, lichChieu]);
 
   const handleCumRap = (rap) => {
     console.log(rap);

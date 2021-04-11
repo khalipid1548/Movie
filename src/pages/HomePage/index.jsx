@@ -1,5 +1,5 @@
 import {getMovieList} from "reducers/movieSlice";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import Slider from "react-slick";
@@ -11,11 +11,13 @@ import News from "components/News";
 import LichChieuCum from "components/LichChieuCum";
 import "./index.scss";
 import {PICK_PHIM} from "../../reducers/movieSlice";
+import Loading from "components/Loading";
 
 export default function HomePage() {
   const {movieList} = useSelector((state) => state.movieReducer);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [loading, setLoading] = useState(true);
 
   const settings = {
     autoplay: true,
@@ -28,7 +30,12 @@ export default function HomePage() {
 
   useEffect(() => {
     dispatch(getMovieList());
+    setLoading(false);
   }, [movieList]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleMovieClick = (maPhim, tenPhim) => {
     console.log(tenPhim);

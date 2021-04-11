@@ -8,6 +8,7 @@ import star12 from "../../assets/img/star12.png";
 import "./PhimDetail.scss";
 import {PICK_LICH} from "reducers/movieSlice";
 import {Link} from "react-router-dom";
+import Loading from "components/Loading";
 
 export default function PhimDetail(props) {
   const {phimId} = useParams();
@@ -15,6 +16,7 @@ export default function PhimDetail(props) {
   const [cumRap, setCumRap] = useState([]);
   const [lichChieu, setLichChieu] = useState([]);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -27,8 +29,13 @@ export default function PhimDetail(props) {
       } catch (error) {
         console.log("Failed to fetch phim : ", error);
       }
+      setLoading(false);
     })();
   }, [phim, cumRap, lichChieu]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleCumRap = (rap) => {
     console.log(rap);
